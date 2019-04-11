@@ -1,0 +1,23 @@
+.container {
+    background-color:#424B5F;
+    width:800px !important;
+
+}
+
+.title:not(:last-child) {
+    margin-bottom:1rem !important;
+}
+
+#no-pad {
+    padding:0;
+}
+
+#is-180 {
+    width:180px;
+}
+
+#is-ff0000 {
+    background-color:#FF0000;
+    border:none;
+    color:white;
+}

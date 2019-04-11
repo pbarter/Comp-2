@@ -1,5 +1,6 @@
 body {
     background-color:#222731 !important;
+    height:100vh;
   }
 .has-navbar-fixed-top {
     padding-top:5.8rem !important;
