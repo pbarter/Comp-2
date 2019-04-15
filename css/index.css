@@ -1,0 +1,42 @@
+.is-brand-color {
+    background:linear-gradient(180deg, rgba(100,65,160,1) 0%, rgba(255,0,0,1) 100%) !important;
+
+}
+
+.logandsign {
+    margin:1em 0;
+}
+
+.login-cont {
+    width:60%;
+    margin:auto;
+}
+
+.border {
+    display:none;
+}
+.column.is-one-fifth {
+    width:0 !important;
+}
+
+
+@media screen and (min-width:900px) {
+
+    .login-cont {
+        width:60%;
+        margin:auto;
+    }
+
+    .border {
+        border-left: 1px solid white;
+        height:192px;
+        position:absolute; 
+        left:50%;
+        display:inline-block;
+    }
+
+    .column.is-one-fifth {
+        width:0 !important;
+    }
+
+}
