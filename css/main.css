@@ -133,7 +133,7 @@ html {
   /* GENERAL ITEM SETUP */
   .calendar li {
     background-color: #222731;
-    padding: 0.25em;
+    padding:1.5em 0.25em;
     display: inline-block;
 }
   
@@ -154,6 +154,7 @@ html {
     position: absolute; 
     height: 100%; 
     width: 100%; 
+    padding:.5em;
     }
 
   .event-mobile {
@@ -174,16 +175,14 @@ html {
     padding-top:100px;
     width:100vw;
     height:100vh;
-    background-color: #ffffff; 
-    
+    background-color: #222731;
   }
 
   .mobile-display {
     display:block;
-    background-color: black;
+    background-color: #ff0000;
     margin: auto;
     padding: 20px;
-    border: 1px solid #888;
     width: 80%;
   }
 
@@ -338,7 +337,6 @@ html {
   
   /* GENERAL ITEM SETUP */
   .calendar li {
-    padding: 0.25em;
     display: inline-block;
   }
   
@@ -361,7 +359,20 @@ html {
 
   li.event p {
     display:inline;
+    font-size:1em;
+    font-weight:bold;
+    line-height:1;
   }
 
+  li.event .info {
+    font-weight:400;
+    font-size:.8em;
+  }
+
+  li.event .time {
+    font-weight:400;
+    font-size:.8em;
+
+  }
     
 }
