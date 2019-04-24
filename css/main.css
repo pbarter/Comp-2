@@ -61,7 +61,6 @@ html {
 }
 
 .schedule-menu h1 {
-  display:block;
   color:white;
   padding-top:.5em;
 }
@@ -157,7 +156,7 @@ html {
     padding:.5em;
     }
 
-  .event-mobile {
+  .mobilecont {
     position:absolute;
     cursor: pointer;
     height:100%;
@@ -166,8 +165,8 @@ html {
     left:0;
     }
 
-  .event-mobile-display {
-    display: none;
+  .eventmobiledisplay {
+    display: block;
     position:fixed;
     z-index:1;
     left:0;
@@ -195,8 +194,8 @@ html {
   }
   
   /* CATEGORIES */
-  .event.yt { background-color: #FF0000; }
-  .event.twitch { background-color: #6441A4; }
+  .event.Youtube { background-color: #FF0000; }
+  .event.Twitch { background-color: #6441A4; }
   
   /* DAY HEADINGS   row / col */
   .sun { grid-area: day / sun; }

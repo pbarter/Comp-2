@@ -1,5 +1,24 @@
 
+#mt {
+    margin-top:1em;
+}
 
+#no-pad {
+    padding:0;
+}
+
+
+#pl {
+    padding-left:1em;
+}
+.section{
+    text-align: center !important;
+
+}
+
+#save {
+    margin:0 2em;
+}
 
 .columns {
     background-color:#424B5F;
@@ -8,6 +27,7 @@
 .column {
     display:inline-block !important;
     vertical-align: middle;
+
 }
 
 .title:not(:last-child) {
@@ -16,34 +36,25 @@
 
 .figure {
     margin:0 !important;
-}
-
-#mt {
-    margin-top:1em;
+    
 }
 
 .mt-col {
     margin-top:4em !important;
+    text-align: left !important;
+
 }
 
-#no-pad {
-    padding:0;
+.Youtube {
+    background-color:#FF0000 !important;
+    border:none !important;
+    color:white !important;
 }
 
-#pl {
-    padding-left:1em;
-}
-
-#is-ff0000 {
-    background-color:#FF0000;
-    border:none;
-    color:white;
-}
-
-#is-6441A4 {
-    background-color:#6441A4;
-    border:none;
-    color:white;
+.Twitch {
+    background-color:#6441A4 !important;
+    border:none !important;
+    color:white !important;
 }
 
 @media screen and (min-width:900px) {
