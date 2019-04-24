@@ -1,287 +1,275 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <link rel="stylesheet" href="css/reset.css"> -->
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-
-  </head>
-  <body>
-    <header>
-      <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">  
-        <div class="field has-addons">
-          <div class="control search-bar">
-            <input class="input is-rounded has-shadow" type="text" placeholder="Search Channels">
-          </div>
-          <div class="control search-button">
-            <a class="button search-icon">
-              <i class="fas fa-search"></i>
-            </a>
-          </div>
-        </div>
-        <div class="image-logo">
-          <img src="img/logo2.png">
-        </div>
-        <div class="container-menu">
-         
-        <div class="dropdown is-right">
-          <div class="dropdown-trigger">
-            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu3">
-              <span class="icon is-large">
-                <i class="fas fa-bars"></i>
-              </span>
-            </button>
-          </div>
-          <div class="dropdown-menu" id="dropdown-menu3" role="menu">
-            <div class="dropdown-content">
-              <a href="explore.html" class="dropdown-item">
-                Explore Channels
-              </a>
-              <a href="accountfollowinglist.html" class="dropdown-item">
-                Account Following List
-              </a>
-              <a href="index.html" class="dropdown-item">
-                  Sign Out
-              </a>
+   <head>
+      <meta charset="utf-8">
+      <title>Week at a Glance</title>
+      <meta name="description" content="Weekly schedule page">
+      <meta name="author" content="Patrick Barter">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- <link rel="stylesheet" href="css/reset.css"> -->
+      <link rel="stylesheet" href="css/main.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.css">
+      <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+   </head>
+   <body>
+      <header>
+         <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+            <div class="field has-addons">
+               <div class="control search-bar">
+                  <input class="input is-rounded has-shadow" type="text" placeholder="Search Channels">
+               </div>
+               <div class="control search-button">
+                  <a class="button search-icon">
+                  <i class="fas fa-search"></i>
+                  </a>
+               </div>
             </div>
-          </div>
-        </div>
-        </div>
-        
-        </nav>
-    </header>
-    
-    <main class="has-navbar-fixed-top">
-      <section class="schedule-menu">
-        <a class="button is-fullwidth" href="dashboard.html">Weekly Schedule</a>
-        <h1 class="title is-2">Week at a Glance</h1>
-        <h6 class="subtitle is-6">Click/Tap schedule bar for more info</h6>
-      </section>
-
-<ul class="calendar weekly-byhour" id="schedule">
-
-  <!--  DAYS OF THE WEEK  -->
-  <li class="day sun">Sun</li>
-  <li class="day mon">Mon</li>
-  <li class="day tue">Tue</li>
-  <li class="day wed">Wed</li>
-  <li class="day thu">Thu</li>
-  <li class="day fri">Fri</li>
-  <li class="day sat">Sat</li> 
-  
-  <!--  TIMES OF THE DAY  -->
-  <li class="time h00">12:00 am</li>
-  <li class="time h01">1:00 am</li>
-  <li class="time h02">2:00 am</li>
-  <li class="time h03">3:00 am</li>
-  <li class="time h04">4:00 am</li>
-  <li class="time h05">5:00 am</li>
-  <li class="time h06">6:00 am</li>
-  <li class="time h07">7:00 am</li>
-  <li class="time h08">8:00 am</li>
-  <li class="time h09">9:00 am</li>
-  <li class="time h10">10:00 am</li>
-  <li class="time h11">11:00 am</li>
-  <li class="time h12">12:00 pm</li>
-  <li class="time h13">1:00 pm</li>
-  <li class="time h14">2:00 pm</li>
-  <li class="time h15">3:00 pm</li>
-  <li class="time h16">4:00 pm</li>
-  <li class="time h17">5:00 pm</li>
-  <li class="time h18">6:00 pm</li>
-  <li class="time h19">7:00 pm</li>
-  <li class="time h20">8:00 pm</li>
-  <li class="time h21">9:00 pm</li>
-  <li class="time h22">10:00 pm</li>
-  <li class="time h23">11:00 pm</li>
-
-  <!--  TOP LEFT CORNER FILLER  -->
-  <li class="corner"></li>
-  
-  <!--  EMPTY HOURLY FILLERS:
-    Helps us show the grid template lines, and create calendar funtionality later. One for every hour
-    cell (7 * 24), because our events are "position:absolute" and will sit over top of empty cells -->
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-</ul>
-    </main>
-    
-    
-    <footer></footer>
-
-    <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
-    <script src="js/mainoriginal.js"></script>
-  </body>
+            <div class="image-logo">
+               <img src="img/logo2.png" alt="Logo for Channel Plan">
+            </div>
+            <div class="container-menu">
+               <div class="dropdown is-right">
+                  <div class="dropdown-trigger">
+                     <button class="button" aria-haspopup="true" aria-controls="dropdown-menu3">
+                     <span class="icon is-large">
+                     <i class="fas fa-bars"></i>
+                     </span>
+                     </button>
+                  </div>
+                  <div class="dropdown-menu" id="dropdown-menu3" role="menu">
+                     <div class="dropdown-content">
+                        <a href="explore.html" class="dropdown-item">
+                        Explore Channels
+                        </a>
+                        <a href="accountfollowinglist.html" class="dropdown-item">
+                        Account Following List
+                        </a>
+                        <a href="index.html" class="dropdown-item">
+                        Sign Out
+                        </a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </nav>
+      </header>
+      <main class="has-navbar-fixed-top">
+         <section class="schedule-menu">
+            <a class="button is-fullwidth" href="dashboard.html">Weekly Schedule</a>
+            <h1 class="title is-2">Week at a Glance</h1>
+            <h6 class="subtitle is-6">Click/Tap schedule bar for more info</h6>
+         </section>
+         <ul class="calendar weekly-byhour" id="schedule">
+            <!--  DAYS OF THE WEEK  -->
+            <li class="day sun">Sun</li>
+            <li class="day mon">Mon</li>
+            <li class="day tue">Tue</li>
+            <li class="day wed">Wed</li>
+            <li class="day thu">Thu</li>
+            <li class="day fri">Fri</li>
+            <li class="day sat">Sat</li>
+            <!--  TIMES OF THE DAY  -->
+            <li class="time h00">12:00 am</li>
+            <li class="time h01">1:00 am</li>
+            <li class="time h02">2:00 am</li>
+            <li class="time h03">3:00 am</li>
+            <li class="time h04">4:00 am</li>
+            <li class="time h05">5:00 am</li>
+            <li class="time h06">6:00 am</li>
+            <li class="time h07">7:00 am</li>
+            <li class="time h08">8:00 am</li>
+            <li class="time h09">9:00 am</li>
+            <li class="time h10">10:00 am</li>
+            <li class="time h11">11:00 am</li>
+            <li class="time h12">12:00 pm</li>
+            <li class="time h13">1:00 pm</li>
+            <li class="time h14">2:00 pm</li>
+            <li class="time h15">3:00 pm</li>
+            <li class="time h16">4:00 pm</li>
+            <li class="time h17">5:00 pm</li>
+            <li class="time h18">6:00 pm</li>
+            <li class="time h19">7:00 pm</li>
+            <li class="time h20">8:00 pm</li>
+            <li class="time h21">9:00 pm</li>
+            <li class="time h22">10:00 pm</li>
+            <li class="time h23">11:00 pm</li>
+            <!--  TOP LEFT CORNER FILLER  -->
+            <li class="corner"></li>
+            <!--  EMPTY HOURLY FILLERS:
+               Helps us show the grid template lines, and create calendar funtionality later. One for every hour
+               cell (7 * 24), because our events are "position:absolute" and will sit over top of empty cells -->
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+         </ul>
+      </main>
+      <footer></footer>
+      <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
+      <script src="js/mainoriginal.js"></script>
+   </body>
 </html>
