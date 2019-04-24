@@ -132,7 +132,7 @@ html {
   /* GENERAL ITEM SETUP */
   .calendar li {
     background-color: #222731;
-    padding:1.5em 0.25em;
+    height:80px;
     display: inline-block;
 }
   
@@ -174,15 +174,17 @@ html {
     padding-top:100px;
     width:100vw;
     height:100vh;
-    background-color: #222731;
+    background-color: #161718;
+    
   }
 
   .mobile-display {
     display:block;
-    background-color: #ff0000;
+    background:linear-gradient(180deg, rgba(100,65,160,1) 0%, rgba(255,0,0,1) 100%) !important;
     margin: auto;
     padding: 20px;
-    width: 80%;
+    width: 50%;
+
   }
 
   .mobile-display p {

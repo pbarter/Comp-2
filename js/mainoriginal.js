@@ -9,7 +9,7 @@ dropdown.addEventListener('click', function(event) {
 
 const dashboardPage = document.getElementById('schedule');
 const explorePage = document.getElementById('explore-contents');
-
+const accountFollow = document.getElementById(`followingslist`);
 //////////ARRAY OF CHANNELS
 
 const channelList = [
@@ -32,13 +32,13 @@ const scheduleList = [
 
 // CHannel User, ID, and platform(colour)
 const channelsAr = [
-  {id: 123, name: "Gameguy"},
-  {id: 124, name: "Gamegal"},
+  // {id: 123, name: "Gameguy"},
+  // {id: 124, name: "Gamegal"},
 ];
 // Schedule stream id (schedule), id (channel), event name
 const streamsAr = [
-  {id: 234, channelId: 123,  platform: 'Youtube', name: "Upload Scheduled", days:"mon", start:"h07", end:"h09", time:"7 A.M - 9 A.M"},
-  {id: 235, channelId: 124,  platform: 'Twitch', name: "Streaming session", days:"tue", start:"h09", end:"h14", time:"9 A.M - 2 P.M"},
+  // {id: 234, channelId: 123,  platform: 'Youtube', name: "Upload Scheduled", days:"mon", start:"h07", end:"h09", time:"7 A.M - 9 A.M"},
+  // {id: 235, channelId: 124,  platform: 'Twitch', name: "Streaming session", days:"tue", start:"h09", end:"h14", time:"9 A.M - 2 P.M"},
 
 ];
 
@@ -157,15 +157,72 @@ explorePage.addEventListener(`click`, event => {
     let streamInfo = findStreamInfoId(enabler);
     streamsAr.push(streamInfo);
     console.log(streamsAr)
+    alert(`Channel added! Please remember to save followers.`)
+
   }
 });
 const saveButton =  document.getElementById(`save`)
 saveButton.addEventListener(`click`, event => {
   localStorage.setItem(`saveChan`, JSON.stringify(channelsAr));
   localStorage.setItem(`saveStr`, JSON.stringify(streamsAr));
+  alert(`Followers saved! Check the schedule for stream/upload times.`)
+
 });
   
 }
-////Save list to local
+
+else if (accountFollow) {
+
+  const retrieveChannels = JSON.parse(localStorage.getItem(`saveChan`));
+  retrieveChannels.forEach(function(content){
+    channelsAr.push(content);
+  });
+  const retrieveStreams = JSON.parse(localStorage.getItem(`saveStr`));
+  retrieveStreams.forEach(function(content){
+    streamsAr.push(content);
+  });
+
+  const findChannelFromId = (streamId) => {
+    return channelsAr.find(tempChannel => tempChannel.id == streamId)
+  }
+  
+  //// Same with this one
+  const findStreamFromChannelId = (channelId) => {
+    return streamsAr.find(stream => stream.channelId == channelId)
+  }
+  
+  
+  const printSingleStream = (stream) => {
+    // First find which channel this stream belongs to
+    let theChannel = findChannelFromId(stream.channelId);  
+    return `<div class="columns mt-col">
+    <div class="column is-one-quarter" id="no-pad">
+        <figure class="image is-128">
+            <img src="${theChannel.img}">
+        </figure>
+    </div>
+    <div class="column" id="pl">
+        <h2 class="title is-6 has-text-white">${stream.platform}: ${theChannel.name}</h2>
+        <button class="button is-small ${stream.platform}" data-id="${stream.id}">Unfollow</button>
+    </div> 
+  </div>`;
+  }
+  
+  const printAllStreams = () => {
+    return streamsAr.map( theStream => printSingleStream(theStream) ).join('');
+  }
+  
+  document.getElementById('followingslist').innerHTML += printAllStreams();
+  
+  const nukeIt = document.getElementById(`removeall`);
+  nukeIt.addEventListener(`click`, event => {
+    localStorage.clear();
+    alert(`Followers removed! Refreshing list now.`)
+    location.reload();
+  });
+}
+
+
+
 
 
