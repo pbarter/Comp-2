@@ -36,7 +36,7 @@ const channelsAr = [
   // {id: 124, name: "Gamegal"},
 ];
 // Schedule stream id (schedule), id (channel), event name
-const streamsAr = [
+let streamsAr = [
   // {id: 234, channelId: 123,  platform: 'Youtube', name: "Upload Scheduled", days:"mon", start:"h07", end:"h09", time:"7 A.M - 9 A.M"},
   // {id: 235, channelId: 124,  platform: 'Twitch', name: "Streaming session", days:"tue", start:"h09", end:"h14", time:"9 A.M - 2 P.M"},
 
@@ -192,10 +192,13 @@ else if (accountFollow) {
   }
   
   
+  
+
+
   const printSingleStream = (stream) => {
     // First find which channel this stream belongs to
     let theChannel = findChannelFromId(stream.channelId);  
-    return `<div class="columns mt-col">
+    let html =  `<div class="columns mt-col">
     <div class="column is-one-quarter" id="no-pad">
         <figure class="image is-128">
             <img src="${theChannel.img}">
@@ -203,23 +206,78 @@ else if (accountFollow) {
     </div>
     <div class="column" id="pl">
         <h2 class="title is-6 has-text-white">${stream.platform}: ${theChannel.name}</h2>
-        <button class="button is-small ${stream.platform}" data-id="${stream.id}">Unfollow</button>
+        <button class="button is-small ${stream.platform} unfollow-button" data-id="${stream.id}">Unfollow</button>
     </div> 
   </div>`;
+  return html;
   }
   
   const printAllStreams = () => {
-    return streamsAr.map( theStream => printSingleStream(theStream) ).join('');
+    // return streamsAr.map( theStream => printSingleStream(theStream) ).join('');
+
+    let output = ""
+    for (let i = 0; i < streamsAr.length; i++) {
+      output += printSingleStream(streamsAr[i])
+    }
+    return output;
+
   }
   
+
+
+  // get rid of one thing
   document.getElementById('followingslist').innerHTML += printAllStreams();
   
+  // let buttons = document.querySelectorAll(".unfollow-button")
+  // for (let j = 0; j < buttons.length; j++) {
+  //   console.log("found a button!")
+  //   console.log(streamsAr)
+  //   buttons[j].addEventListener("click", event => {
+      
+  //     let trigger = event.target.dataset.id;
+      
+      
+  //     // search the stresams array for the current chanle and remove it
+  //     let newStreamsList = []
+  //     for (let k = 0; k < streamsAr.length; k++) {
+  //       console.log("Current stream: " + streamsAr[k].id)
+  //       if (streamsAr[k].id == trigger) {
+  //         console.log("found matching id")
+  //       }
+  //       else {
+  //         newStreamsList.push(streamsAr[k])
+  //       }
+  //     }
+  //     console.log("Array after")
+  //     console.log(newStreamsList)
+
+  //     streamsAr = newStreamsList
+  //     console.log("contents of streamsArr")
+  //     console.log(streamsAr)
+      
+  //     document.getElementById('followingslist').innerHTML += printAllStreams();
+
+  //   })
+  // }
+  
+  
+
+
+
+
+  // remove all people from the list
   const nukeIt = document.getElementById(`removeall`);
   nukeIt.addEventListener(`click`, event => {
     localStorage.clear();
     alert(`Followers removed! Refreshing list now.`)
     location.reload();
   });
+
+
+  
+
+
+
 }
 
 
