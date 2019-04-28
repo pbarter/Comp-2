@@ -1,17 +1,19 @@
 /////////// DROPDOWN MENU ON NAV
 
-const dropdown = document.querySelector('.dropdown');
-dropdown.addEventListener('click', function(event) {
+//Get the class in the HTML
+const dropdownButton = document.querySelector('.dropdown');
+//Add an event where when clicked, the dropdown button will insert a class inside the div called is-active (which is used in Bulma's library to toggle a dropdown to open the list of links to other pages)
+dropdownButton.addEventListener('click', function(event) {
   event.stopPropagation();
-  dropdown.classList.toggle('is-active');
+  dropdownButton.classList.toggle('is-active');
 });
 
 
 const dashboardPage = document.getElementById('schedule');
 const explorePage = document.getElementById('explore-contents');
 const accountFollow = document.getElementById(`followingslist`);
-//////////ARRAY OF CHANNELS
 
+//////////ARRAY OF CHANNELS
 const channelList = [
   {id: 125, name:`Pewdiepie`, img:`https://bulma.io/images/placeholders/128x128.png`},
   {id: 126, name:`VeronicaBlogs`, img:`https://bulma.io/images/placeholders/128x128.png`},
@@ -30,12 +32,12 @@ const scheduleList = [
   {id: 242, channelId: 130,  platform: 'Twitch', name: "Stream Scheduled", days:"tue", start:"h15", end:"h20", time:"3 P.M - 8 P.M"},
 ];
 
-// CHannel User, ID, and platform(colour)
+// CHannel: User, ID
 const channelsAr = [
   // {id: 123, name: "Gameguy"},
   // {id: 124, name: "Gamegal"},
 ];
-// Schedule stream id (schedule), id (channel), event name
+// Schedule stream: id (schedule), channelID (to match with channelsAr ID), platform, event name, day, start time, end time, and time (displays on rectangles)
 let streamsAr = [
   // {id: 234, channelId: 123,  platform: 'Youtube', name: "Upload Scheduled", days:"mon", start:"h07", end:"h09", time:"7 A.M - 9 A.M"},
   // {id: 235, channelId: 124,  platform: 'Twitch', name: "Streaming session", days:"tue", start:"h09", end:"h14", time:"9 A.M - 2 P.M"},
@@ -43,6 +45,7 @@ let streamsAr = [
 ];
 
  if (dashboardPage) {
+   /// Retrieving array string then convering back to array and telling JS forEach item in the array, push to their specified array
   const retrieveChannels = JSON.parse(localStorage.getItem(`saveChan`));
   retrieveChannels.forEach(function(content){
     channelsAr.push(content);
@@ -55,7 +58,6 @@ let streamsAr = [
 //DESKTOP VIEW GET SCHEDULE LIST
 
 
-//Find the id from channelsAr and match with the channelId from streamsAr
 //// Gets channelAr and finds the id that is equal to streamId (which is all of them in this rule)
 
 const findChannelFromId = (streamId) => {
@@ -69,8 +71,8 @@ const findStreamFromChannelId = (channelId) => {
 
 
 const printSingleStream = (stream) => {
-  // First find which channel this stream belongs to
-  let theChannel = findChannelFromId(stream.channelId);  // Note: If no colour, then we have a problem!
+  // Finds which channel this stream belongs to
+  let theChannel = findChannelFromId(stream.channelId);
 
   // Format a list item with the channel colour and the stream name
   return `<li class="event ${stream.platform}" style="grid-column:${stream.days}; grid-row:${stream.start} / ${stream.end};">
@@ -79,17 +81,18 @@ const printSingleStream = (stream) => {
   </div>
   </li>`;
 }
-
+// Code to "join" each item in the array once we output
 const printAllStreams = () => {
   return streamsAr.map( theStream => printSingleStream(theStream) ).join('');
   
 }
-
+// The final output to HTML
 document.getElementById('schedule').innerHTML += printAllStreams();
 
 
 // Mobile Display Box
-  
+
+/// The click function in which the rectangles in our schedule will insert a div display that will show us the channel name, the event (upload or stream scheduled), and the time.
 dashboardPage.addEventListener(`click`, event => {
   console.log(event)
   let trigger = event.target.dataset.id;
@@ -101,7 +104,7 @@ dashboardPage.addEventListener(`click`, event => {
     dashboardPage.innerHTML += `<div id="eventmobiledisplay" class="eventmobiledisplay" data-id="event-m-display"><div class="mobile-display"><p>${theChannel.name}</p><br><p>${theStream.name}</p><br><p>${theStream.time}</p></div>`
   }
 });
-  
+// The function to remove the "eventmobiledisplay" div when you click around the black box
   window.addEventListener(`click`, (outside) => {
     if (outside.target.id == `eventmobiledisplay`) {
       outside.target.remove();
@@ -115,6 +118,7 @@ dashboardPage.addEventListener(`click`, event => {
 
 else if (explorePage) {
 
+// I want to output a list of people to follow and the way to do that is similar to how we output the schedule items in the dashboard page
 const findChannelInfoId = (streaminfoId) => {
   return channelList.find(tempChan => tempChan.id == streaminfoId)
 }
@@ -144,7 +148,7 @@ const printAllChannelsEx = () => {
 
 document.getElementById('explore-contents').innerHTML += printAllChannelsEx();
 
-
+//Button that will once clicked, will push the specific stream and channel information to channelsAr and streamsAr
 explorePage.addEventListener(`click`, event => {
   //console.log(event)
   let enabler = event.target.dataset.id;
@@ -161,6 +165,7 @@ explorePage.addEventListener(`click`, event => {
 
   }
 });
+//Save button which will save our pushed items and turn it to a string (which will be changed to an array then pushed to streamsAr and channelsAr when we call for it in our other pages)
 const saveButton =  document.getElementById(`save`)
 saveButton.addEventListener(`click`, event => {
   localStorage.setItem(`saveChan`, JSON.stringify(channelsAr));
@@ -185,18 +190,12 @@ else if (accountFollow) {
   const findChannelFromId = (streamId) => {
     return channelsAr.find(tempChannel => tempChannel.id == streamId)
   }
-  
-  //// Same with this one
+  // I called streamsAr.find for the purpose of the unfollow button. channelsAr and streamsAr will need to remove an item depending on what channel the user unfollows
   const findStreamFromChannelId = (channelId) => {
     return streamsAr.find(stream => stream.channelId == channelId)
   }
   
-  
-  
-
-
   const printSingleStream = (stream) => {
-    // First find which channel this stream belongs to
     let theChannel = findChannelFromId(stream.channelId);  
     let html =  `<div class="columns mt-col">
     <div class="column is-one-quarter" id="no-pad">
@@ -212,6 +211,7 @@ else if (accountFollow) {
   return html;
   }
   
+  // Janelle did her version of printAllStreams which is similar to what map does. I left it here for future reference since I have map, the for (let x=0) loop technique, and the forEach loop used in this assignment
   const printAllStreams = () => {
     // return streamsAr.map( theStream => printSingleStream(theStream) ).join('');
 
@@ -223,47 +223,10 @@ else if (accountFollow) {
 
   }
   
-
-
-  // get rid of one thing
   document.getElementById('followingslist').innerHTML += printAllStreams();
-  
-  // let buttons = document.querySelectorAll(".unfollow-button")
-  // for (let j = 0; j < buttons.length; j++) {
-  //   console.log("found a button!")
-  //   console.log(streamsAr)
-  //   buttons[j].addEventListener("click", event => {
-      
-  //     let trigger = event.target.dataset.id;
-      
-      
-  //     // search the stresams array for the current chanle and remove it
-  //     let newStreamsList = []
-  //     for (let k = 0; k < streamsAr.length; k++) {
-  //       console.log("Current stream: " + streamsAr[k].id)
-  //       if (streamsAr[k].id == trigger) {
-  //         console.log("found matching id")
-  //       }
-  //       else {
-  //         newStreamsList.push(streamsAr[k])
-  //       }
-  //     }
-  //     console.log("Array after")
-  //     console.log(newStreamsList)
 
-  //     streamsAr = newStreamsList
-  //     console.log("contents of streamsArr")
-  //     console.log(streamsAr)
-      
-  //     document.getElementById('followingslist').innerHTML += printAllStreams();
-
-  //   })
-  // }
   
   
-
-
-
 
   // remove all people from the list
   const nukeIt = document.getElementById(`removeall`);
