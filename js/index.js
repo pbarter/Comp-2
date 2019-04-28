@@ -7,6 +7,8 @@ let password = 1234
 const unId = document.getElementById(`un`);
 const pwId = document.getElementById(`pw`);
 const loginButton = document.getElementById(`login`);
+unId.value = `pb12`
+pwId.value = `1234`
 
 //Function to get JS to match input with our username and password
 loginButton.addEventListener(`click`, event => {
