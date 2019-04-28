@@ -225,8 +225,32 @@ else if (accountFollow) {
   
   document.getElementById('followingslist').innerHTML += printAllStreams();
 
+  //remove one follower on click (not active since I can't figure it out)
   
-  
+  /*
+  accountFollow.addEventListener(`click`, event => {
+  let enabler = event.target.dataset.id;
+  if (enabler) {
+    console.log(`success`);
+    channelsAr.splice(findChannelFromId);
+    console.log(channelsAr)
+
+    streamsAr.splice(findStreamFromChannelId);
+    console.log(streamsAr)
+    alert(`Channel removed! Please remember to save follower list.`)
+
+  }
+});
+// Added save follows as a way to resave the array after removing the one item in it. (wasn't sure how to add a save function in the evenlistener without overwriting each time)
+
+  const saveButton =  document.getElementById(`save`)
+saveButton.addEventListener(`click`, event => {
+  localStorage.setItem(`saveChan`, JSON.stringify(channelsAr));
+  localStorage.setItem(`saveStr`, JSON.stringify(streamsAr));
+  alert(`Followers saved! Check the schedule for stream/upload times.`)
+
+});
+  */
 
   // remove all people from the list
   const nukeIt = document.getElementById(`removeall`);

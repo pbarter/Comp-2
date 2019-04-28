@@ -7,6 +7,15 @@ Purpose of website: The purpose of this website is to allow users to have a way 
 To access from login: 
 
 Username: pb12
+Password: 1234 (very secure password)
+
+##Notes on Difficulties with the JS I had:
+
+- The array would always overwrite when I add a follower and save it to local. Not sure how to have it where it would just add a follower if a list exist and saves the changes. 
+
+- The unfollow button function is still a bit tricky since I am not sure how to specifically aim for the item in the array that is being displayed (if I want to unfollow Jerma985, it should remove his item from channelsAr and streamsAr)
+
+- While I did find a way to have a login feature, I am not sure how to have an array of account information and have my function search through each item for matching the array items to what a user inputs in the username and password texboxes. 
 
 ##JS Code Cited:
 

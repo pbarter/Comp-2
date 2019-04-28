@@ -19,7 +19,7 @@ loginButton.addEventListener(`click`, event => {
         window.location.href = "dashboard.html";
 
     }
-
+// If the username or password inputs do not match with what I have as the username and password, do this:
     else {
         alert(`Wrong username`)
         unId.value = ``
@@ -27,5 +27,3 @@ loginButton.addEventListener(`click`, event => {
         return;
     }
 });
-
-//dashboard.html
